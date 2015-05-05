@@ -1,0 +1,22 @@
+<h1>
+	Your Sky bill is here
+	<small>Generated {{bill.statement.generated}}</small>
+</h1>
+<div class="row text-center">
+	<div class="col-sm-4">
+		<h1>{{bill.total}}</h1>
+		<p>Will be collected on {{bill.statement.due}}</p>
+	</div>
+	<div class="col-sm-8">
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="text-uppercase">From</div>
+				<h3>{{bill.statement.period.from}}</h3>
+			</div>
+			<div class="col-xs-6">
+				<div class="text-uppercase">To</div>
+				<h3>{{bill.statement.period.to}}</h3>
+			</div>
+		</div>
+	</div>
+</div>

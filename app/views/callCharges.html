@@ -1,0 +1,21 @@
+<h3>
+	Your calls
+	<span class="pull-right">{{bill.callCharges.total}}</span>
+</h3>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>You called</th>
+			<th>For</th>
+			<th>Costing</th>
+		</tr>	
+	</thead>	
+	<tbody>
+	    <tr ng-repeat="call in bill.callCharges.calls">
+	    	<td>{{call.called}}</td>
+	    	<td>{{call.duration}}</td>
+	    	<td>{{call.cost}}</td>
+	    </tr>
+	</tbody>
+</table>

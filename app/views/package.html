@@ -1,0 +1,16 @@
+<h3>
+	Your package
+	<span class="pull-right">{{bill.package.total}}</span>
+</h3>
+
+<div class="row">
+	<div class="media col-sm-4" ng-repeat="subscription in bill.package.subscriptions">
+	  <div class="media-left">
+	    fa
+	  </div>
+	  <div class="media-body">
+	    <h4 class="media-heading">{{subscription.name}}</h4>
+	    <h4>{{subscription.cost}}</h4>
+	  </div>
+	</div>
+</div>

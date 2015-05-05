@@ -1,0 +1,22 @@
+<h3>
+	Your Sky store
+	<span class="pull-right">{{bill.skyStore.total}}</span>
+</h3>
+
+<h4>Rentals</h4>
+
+<div class="row">
+	<div class="col-sm-4 col-xs-6" ng-repeat="rental in bill.skyStore.rentals">
+		<h5>{{rental.title}}</h5>
+		<h5>{{rental.cost}}</h5>
+	</div>
+</div>
+
+<h4>Buy and keep</h4>
+
+<div class="row">
+	<div class="col-sm-4 col-xs-6" ng-repeat="bought in bill.skyStore.buyAndKeep">
+		<h5>{{bought.title}}</h5>
+		<h5>{{bought.cost}}</h5>
+	</div>
+</div>
