@@ -1,16 +1,26 @@
-<h3>
-	Your package
-	<span class="pull-right">{{bill.package.total}}</span>
-</h3>
 
-<div class="row">
-	<div class="media col-sm-4" ng-repeat="subscription in bill.package.subscriptions">
-	  <div class="media-left">
-	    fa
-	  </div>
-	  <div class="media-body">
-	    <h4 class="media-heading">{{subscription.name}}</h4>
-	    <h4>{{subscription.cost}}</h4>
-	  </div>
+<a href="#package-breakdown" 
+   data-toggle="collapse" 
+   aria-expanded="false" 
+   aria-controls="package-breakdown">
+	<div class="row h3">
+		<div class="col-xs-8 col-sm-7">Packages</div>
+		<div class="col-xs-3 text-right">{{bill.package.total | currency:"£":2}}</div>
+		<div class="col-xs-1"><i class="fa fa-angle-right"></i></div>
+	</div>
+</a>
+
+<div id="package-breakdown" class="collapse">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-9 col-sm-offset-1">
+			<table class="table table-hover h4">
+				<tbody>
+			    <tr ng-repeat="subscription in bill.package.subscriptions">
+			    	<td>{{subscription.name}}</td>
+			    	<td class="text-right">{{subscription.cost | currency:"£":2}}</td>
+			    </tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

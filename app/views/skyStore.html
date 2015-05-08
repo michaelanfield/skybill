@@ -1,22 +1,38 @@
-<h3>
-	Your Sky store
-	<span class="pull-right">{{bill.skyStore.total}}</span>
-</h3>
-
-<h4>Rentals</h4>
-
-<div class="row">
-	<div class="col-sm-4 col-xs-6" ng-repeat="rental in bill.skyStore.rentals">
-		<h5>{{rental.title}}</h5>
-		<h5>{{rental.cost}}</h5>
+<a href="#skystore-breakdown" 
+   data-toggle="collapse"
+   aria-expanded="false" 
+   aria-controls="skystore-breakdown">
+	<div class="row h3">
+		<div class="col-xs-8 col-sm-7">Sky store</div>
+		<div class="col-xs-3 text-right">{{bill.skyStore.total | currency:"£":2}}</div>
+		<div class="col-xs-1"><i class="fa fa-angle-right"></i></div>
 	</div>
-</div>
+</a>
 
-<h4>Buy and keep</h4>
+<div id="skystore-breakdown" class="collapse">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-9 col-sm-offset-1">
+			<h4 class="text-uppercase store-group-title">Rentals</h4>
 
-<div class="row">
-	<div class="col-sm-4 col-xs-6" ng-repeat="bought in bill.skyStore.buyAndKeep">
-		<h5>{{bought.title}}</h5>
-		<h5>{{bought.cost}}</h5>
+			<table class="table table-hover h4">
+				<tbody>
+			    <tr ng-repeat="rental in bill.skyStore.rentals">
+			    	<td>{{rental.title}}</td>
+			    	<td class="text-right">{{rental.cost | currency:"£":2}}</td>
+			    </tr>
+				</tbody>
+			</table>
+
+			<h4 class="text-uppercase store-group-title">Buy and keep</h4>
+
+			<table class="table table-hover h4">
+				<tbody>
+			    <tr ng-repeat="bought in bill.skyStore.buyAndKeep">
+			    	<td>{{bought.title}}</td>
+			    	<td class="text-right">{{bought.cost | currency:"£":2}}</td>
+			    </tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

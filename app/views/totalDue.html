@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="col-xs-7 col-sm-offset-1 h3">
+		Total due {{bill.statement.due | amDateFormat:'Do MMM'}}
+	</div>
+	<div class="col-xs-4 col-sm-2 text-right h2">
+		{{bill.total | currency:"£":2}}
+	</div>
+</div>

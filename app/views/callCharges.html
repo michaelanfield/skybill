@@ -1,21 +1,26 @@
-<h3>
-	Your calls
-	<span class="pull-right">{{bill.callCharges.total}}</span>
-</h3>
+<a href="#call-breakdown" 
+   data-toggle="collapse" 
+   aria-expanded="false" 
+   aria-controls="call-breakdown">
+	<div class="row h3">
+		<div class="col-xs-8 col-sm-7">Calls</div>
+		<div class="col-xs-3 text-right">{{bill.callCharges.total | currency:"£":2}}</div>
+		<div class="col-xs-1"><i class="fa fa-angle-right"></i></div>
+	</div>
+</a>
 
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>You called</th>
-			<th>For</th>
-			<th>Costing</th>
-		</tr>	
-	</thead>	
-	<tbody>
-	    <tr ng-repeat="call in bill.callCharges.calls">
-	    	<td>{{call.called}}</td>
-	    	<td>{{call.duration}}</td>
-	    	<td>{{call.cost}}</td>
-	    </tr>
-	</tbody>
-</table>
+<div id="call-breakdown" class="collapse">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-9 col-sm-offset-1">
+			<table class="table table-hover h4">
+				<tbody>
+			    <tr ng-repeat="call in bill.callCharges.calls">
+			    	<td>{{call.called}}</td>
+			    	<td class="text-center">{{call.duration}}</td>
+			    	<td class="text-right">{{call.cost | currency:"£":2}}</td>
+			    </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

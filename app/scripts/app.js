@@ -10,5 +10,6 @@
  */
 angular
   .module('skybillApp', [
-    'ngResource'
+    'ngResource',
+    'angular-momentjs'
   ]);

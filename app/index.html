@@ -9,8 +9,10 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -20,12 +22,36 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
     <div class="container">
+      <div class="header">
+        <img src="images/sky-logo.png" height="60px"> <h1 class="header-title">Statement</h1>
+      </div>
+
+      <hr />
+
       <div ng-include="'views/statement.html'" ng-controller="BillCtrl"></div>
-      <div ng-include="'views/package.html'" ng-controller="BillCtrl"></div>
-      <div ng-include="'views/callCharges.html'" ng-controller="BillCtrl"></div>
-      <div ng-include="'views/skyStore.html'" ng-controller="BillCtrl"></div>
+
+      <div class="row">
+        <div class="col-sm-11 col-sm-offset-1">
+          <div ng-include="'views/package.html'" ng-controller="BillCtrl"></div>
+          <div ng-include="'views/callCharges.html'" ng-controller="BillCtrl"></div>
+          <div ng-include="'views/skyStore.html'" ng-controller="BillCtrl"></div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div ng-include="'views/totalDue.html'" ng-controller="BillCtrl"></div>   
+
+      <hr />
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" ng-controller="BillCtrl">
+          Statement generated {{bill.statement.generated | amDateFormat:'Do MMM'}}
+        </div>
+      </div>
+
+      <hr />
     </div>
 
     <!-- <div class="footer">
@@ -40,13 +66,15 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/bill.js"></script>
-        <script src="scripts/services/billing.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/bill.js"></script>
+    <script src="scripts/services/billing.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
