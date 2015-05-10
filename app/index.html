@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Sky bill</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -24,7 +24,8 @@
 
     <div class="container">
       <div class="header">
-        <img src="images/sky-logo.png" height="60px"> <h1 class="header-title">Statement</h1>
+        <img src="images/sky-logo.png" class="header-logo" height="60px"> 
+        <h1 class="header-title">Bill</h1>
       </div>
 
       <hr />
@@ -32,7 +33,7 @@
       <div ng-include="'views/statement.html'" ng-controller="BillCtrl"></div>
 
       <div class="row">
-        <div class="col-sm-11 col-sm-offset-1">
+        <div class="col-sm-11 col-sm-offset-1 bill-breakdown">
           <div ng-include="'views/package.html'" ng-controller="BillCtrl"></div>
           <div ng-include="'views/callCharges.html'" ng-controller="BillCtrl"></div>
           <div ng-include="'views/skyStore.html'" ng-controller="BillCtrl"></div>
@@ -45,11 +46,7 @@
 
       <hr />
 
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1" ng-controller="BillCtrl">
-          Statement generated {{bill.statement.generated | amDateFormat:'Do MMM'}}
-        </div>
-      </div>
+      <div ng-include="'views/statementGenerated.html'" ng-controller="BillCtrl"></div>  
 
       <hr />
     </div>

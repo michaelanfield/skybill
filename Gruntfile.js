@@ -15,6 +15,9 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  // Protractor test runner
+  require('grunt-protractor-runner')(grunt);
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -43,6 +46,14 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
+      },
+      e2eTest: {
+        files: ['test/e2e/{,*/}*.js',
+                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                '<%= yeoman.app %>/{,*/}*.html',
+                '.tmp/styles/{,*/}*.css',
+                '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'],
+        tasks: ['protractor-e2e']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -377,6 +388,9 @@ module.exports = function (grunt) {
         'copy:styles',
         'imagemin',
         'svgmin'
+      ],
+      protractor_test: [
+        'protractor-chrome' 
       ]
     },
 
@@ -386,9 +400,27 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Protractor test settings
+    protractor: {
+      options: {
+        configFile: 'protractor.conf.js', 
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+            // Arguments passed to the command
+        }
+      },
+      chrome: {
+        options: {
+          args: {
+              browser: 'chrome'
+          }
+        }
+      }
     }
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -417,6 +449,14 @@ module.exports = function (grunt) {
     'autoprefixer',
     'connect:test',
     'karma'
+  ]);
+
+  grunt.registerTask('protractor-chrome', [
+    'protractor:chrome'
+  ]);
+
+  grunt.registerTask('protractor-e2e', [
+    'concurrent:protractor_test'
   ]);
 
   grunt.registerTask('build', [
