@@ -58,9 +58,7 @@ describe('Controller: BillCtrl', function () {
 
     var bill = scope.bill;
     expect( bill.statement ).toBeDefined();
-    expect( bill.statement ).toEqual( jasmine.any( Object ) );
     expect( bill.total ).toBeDefined();
-    expect( bill.statement ).toEqual( jasmine.any( Object ) );
     expect( bill.package ).toBeDefined();
     expect( bill.callCharges ).toBeDefined();
     expect( bill.skyStore ).toBeDefined();
