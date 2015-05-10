@@ -21,12 +21,12 @@ The functional tests utilise Protractor and can be run as follows.
 
 1. Open a new terminal and start the Selenium server
 
-    ./node_modules/.bin/webdriver-manager start
+    `./node_modules/.bin/webdriver-manager start`
 
 2. Open a new terminal and start the Web server running the app
 
-    grunt serve
+    `grunt serve`
 
 3. Open a new terminal and run the protractor functional tests
 
-    grunt protractor-e2e
+    `grunt protractor-e2e`
