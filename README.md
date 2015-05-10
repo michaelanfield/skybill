@@ -27,6 +27,6 @@ The functional tests utilise Protractor and can be run as follows.
 
     grunt serve
 
-2. Open a new terminal and run the protractor functional tests
+3. Open a new terminal and run the protractor functional tests
 
     grunt protractor-e2e
