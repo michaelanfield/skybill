@@ -7,6 +7,8 @@ For some crazy reason I have taken this opportunity to learn something new. The 
 * Plugging in the `angular-bootstrap` component to angularify the `collapse` functionality and hook into the `show.bs.collapse` and `hide.bs.collapse` events to create an animated transition.
 * Created a CSS3 transition to rotate the expand / close icon used in the `collapse` components.
 * Parameterised the test assertion values.
+* Use `LESS` or `Sass` to structure the CSS and re-use colour variables.
+* Structure the functional tests to use the `page` pattern (although in this instance the page is simple enough).
 
 ## Build & development
 
