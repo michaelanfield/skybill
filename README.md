@@ -1,7 +1,12 @@
-# skybill
+# Sky bill
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.11.1.
+
+For some crazy reason I have taken this opportunity to learn something new. The application is built (as stated above) using yeoman, grunt and bower. This is the first time I have used these tools and as such some areas are probably a little noddy. Due to free time constraints I have not done everything I would like to have done such as;
+* Plugging in the `angular-bootstrap` component to angularify the `collapse` functionality and hook into the `show.bs.collapse` and `hide.bs.collapse` events to create an animated transition.
+* Created a CSS3 transition to rotate the expand / close icon used in the `collapse` components.
+* Parameterised the test assertion values.
 
 ## Build & development
 
